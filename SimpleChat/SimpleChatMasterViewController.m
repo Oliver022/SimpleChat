@@ -14,7 +14,7 @@
 #import "FMDatabaseQueue.h"
 #import "FMResultSet.h"
 #import "SRWebSocket.h"
-
+#import "ChatMessage.h"
 
 extern FMDatabase *mydb;
 extern SRWebSocket *_webSocket;
@@ -34,11 +34,85 @@ extern NSString *me;
     [super awakeFromNib];
 }
 
+- (void)_reconnect;
+{
+    _webSocket.delegate = nil;
+    [_webSocket close];
+    
+    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://localhost:9000/chat"]]];
+    _webSocket.delegate = self;
+    
+    self.title = @"Opening Connection...";
+    [_webSocket open];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self _reconnect];
+}
+
+
+
+- (void)viewDidAppear:(BOOL)animated;
+{
+    [super viewDidAppear:animated];
+    
+    [self.tableView becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+    
+    _webSocket.delegate = nil;
+    [_webSocket close];
+    _webSocket = nil;
+}
+
+#pragma mark - SRWebSocketDelegate
+
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket;
+{
+    NSLog(@"Websocket Connected");
+    self.title = @"Connected!";
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
+{
+    NSLog(@":( Websocket Failed With Error %@", error);
+    
+    self.title = @"Connection Failed! (see logs)";
+    _webSocket = nil;
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
+{
+    [mydb executeUpdate:@"insert into messages (sfrom, sto, content, time) values (?, ?, ?, ?)",
+     [message from],
+     me,
+     [message content],
+     [NSDate date]
+     ];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
+{
+    NSLog(@"WebSocket closed");
+    self.title = @"Connection Closed! (see logs)";
+    _webSocket = nil;
+}
+
+
+
+
+
 
 
 - (void)viewDidLoad
 {
-   
+    
     FMResultSet *rs = [mydb executeQuery:@"select * from contacts"];
     contacts = [[NSMutableArray alloc] init];
 

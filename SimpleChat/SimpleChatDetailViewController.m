@@ -105,16 +105,16 @@ extern SRWebSocket *_webSocket;
     //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:_messages.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     //[self.tableView scrollRectToVisible:self.tableView.tableFooterView.frame animated:YES];
     
-    ChatMessage *newMessage =[[ChatMessage alloc] init];
-    newMessage.content = [(ChatMessage *)message content];
-    newMessage.from = @"";
-    newMessage.datetime = [NSDate date];
-    [messages addObject:newMessage];
+    //ChatMessage *newMessage =[[ChatMessage alloc] init];
+    //newMessage.content = [(ChatMessage *)message content];
+    //newMessage.from = [(ChatMessage *)message from];
+    //newMessage.datetime = [NSDate date];
+    [messages addObject:(ChatMessage *)message];
     
     [mydb executeUpdate:@"insert into messages (sfrom, sto, content, time) values (?, ?, ?, ?)",
-     chater,
+     [message from],
      me,
-     message,
+     [message content],
      [NSDate date]
      ];
     
@@ -160,7 +160,7 @@ extern SRWebSocket *_webSocket;
 }
 
 - (void)viewDidLoad
-{   //NSLog(@"%@",chater);
+{  
     messages = [[NSMutableArray alloc] init];
     FMResultSet *rs = [mydb executeQuery:@"select * from messages c where c.sfrom = ? OR c.sto = ?",chater, chater];
     
