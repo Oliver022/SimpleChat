@@ -9,9 +9,21 @@
 #import "SimpleChatMasterViewController.h"
 
 #import "SimpleChatDetailViewController.h"
+#import "FMDatabase.h"
+#import "FMDatabaseAdditions.h"
+#import "FMDatabaseQueue.h"
+#import "FMResultSet.h"
+#import "SRWebSocket.h"
+
+
+extern FMDatabase *mydb;
+extern SRWebSocket *_webSocket;
+extern NSString *me;
+
+
 
 @interface SimpleChatMasterViewController () {
-    NSMutableArray *_objects;
+    NSMutableArray *contacts;
 }
 @end
 
@@ -22,14 +34,32 @@
     [super awakeFromNib];
 }
 
+
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+   
+    FMResultSet *rs = [mydb executeQuery:@"select * from contacts"];
+    contacts = [[NSMutableArray alloc] init];
 
+    while ([rs next]) {
+        
+        [contacts  addObject:[rs stringForColumn:@"nickName"]];
+
+    }
+    // close the result set.
+    // it'll also close when it's dealloc'd, but we're closing the database before
+    // the autorelease pool closes, so sqlite will complain about it.
+    [rs close];
+  
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,10 +70,10 @@
 
 - (void)insertNewObject:(id)sender
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+    if (!contacts) {
+        contacts = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    [contacts insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -57,14 +87,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return contacts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
+    NSDate *object = contacts[indexPath.row];
     cell.textLabel.text = [object description];
     return cell;
 }
@@ -78,7 +108,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        [contacts removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -105,7 +135,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
+        NSString *object = contacts[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }

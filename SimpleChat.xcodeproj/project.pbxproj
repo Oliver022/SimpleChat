@@ -24,6 +24,21 @@
 		03D439C91779124000ED580C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D439A11779124000ED580C /* Foundation.framework */; };
 		03D439D11779124000ED580C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D439CF1779124000ED580C /* InfoPlist.strings */; };
 		03D439D41779124000ED580C /* SimpleChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D439D31779124000ED580C /* SimpleChatTests.m */; };
+		03D439DE1779128500ED580C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D439DD1779128500ED580C /* libicucore.dylib */; };
+		03D439E01779128E00ED580C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D439DF1779128E00ED580C /* CFNetwork.framework */; };
+		03D439E21779129800ED580C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D439E11779129800ED580C /* Security.framework */; };
+		03D439E4177912A900ED580C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D439E3177912A900ED580C /* libsqlite3.dylib */; };
+		03D439EE1779142F00ED580C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D439E71779142F00ED580C /* FMDatabase.m */; };
+		03D439EF1779142F00ED580C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D439E91779142F00ED580C /* FMDatabaseAdditions.m */; };
+		03D439F01779142F00ED580C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D439EB1779142F00ED580C /* FMDatabaseQueue.m */; };
+		03D439F11779142F00ED580C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D439ED1779142F00ED580C /* FMResultSet.m */; };
+		03D439FA1779150100ED580C /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 03D439F31779150100ED580C /* base64.c */; };
+		03D439FB1779150100ED580C /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D439F61779150100ED580C /* NSData+SRB64Additions.m */; };
+		03D439FC1779150100ED580C /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D439F91779150100ED580C /* SRWebSocket.m */; };
+		03FE2F56177A5C0900B6162F /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FE2F55177A5C0900B6162F /* ChatCell.m */; };
+		03FE2F59177A621500B6162F /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FE2F58177A621500B6162F /* ChatMessage.m */; };
+		03FE2F5B177A6CFE00B6162F /* aqua.png in Resources */ = {isa = PBXBuildFile; fileRef = 03FE2F5A177A6CFE00B6162F /* aqua.png */; };
+		03FE2F5D177A6D0C00B6162F /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 03FE2F5C177A6D0C00B6162F /* orange.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +76,31 @@
 		03D439D01779124000ED580C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03D439D21779124000ED580C /* SimpleChatTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleChatTests.h; sourceTree = "<group>"; };
 		03D439D31779124000ED580C /* SimpleChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleChatTests.m; sourceTree = "<group>"; };
+		03D439DD1779128500ED580C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		03D439DF1779128E00ED580C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		03D439E11779129800ED580C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		03D439E3177912A900ED580C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		03D439E61779142F00ED580C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = "../../../Downloads/fmdb-master/src/FMDatabase.h"; sourceTree = "<group>"; };
+		03D439E71779142F00ED580C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = "../../../Downloads/fmdb-master/src/FMDatabase.m"; sourceTree = "<group>"; };
+		03D439E81779142F00ED580C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = "../../../Downloads/fmdb-master/src/FMDatabaseAdditions.h"; sourceTree = "<group>"; };
+		03D439E91779142F00ED580C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = "../../../Downloads/fmdb-master/src/FMDatabaseAdditions.m"; sourceTree = "<group>"; };
+		03D439EA1779142F00ED580C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = "../../../Downloads/fmdb-master/src/FMDatabaseQueue.h"; sourceTree = "<group>"; };
+		03D439EB1779142F00ED580C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = "../../../Downloads/fmdb-master/src/FMDatabaseQueue.m"; sourceTree = "<group>"; };
+		03D439EC1779142F00ED580C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = "../../../Downloads/fmdb-master/src/FMResultSet.h"; sourceTree = "<group>"; };
+		03D439ED1779142F00ED580C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = "../../../Downloads/fmdb-master/src/FMResultSet.m"; sourceTree = "<group>"; };
+		03D439F31779150100ED580C /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		03D439F41779150100ED580C /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		03D439F51779150100ED580C /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		03D439F61779150100ED580C /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		03D439F71779150100ED580C /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		03D439F81779150100ED580C /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		03D439F91779150100ED580C /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		03FE2F54177A5C0900B6162F /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		03FE2F55177A5C0900B6162F /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		03FE2F57177A621500B6162F /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
+		03FE2F58177A621500B6162F /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
+		03FE2F5A177A6CFE00B6162F /* aqua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aqua.png; sourceTree = "<group>"; };
+		03FE2F5C177A6D0C00B6162F /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +108,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D439E4177912A900ED580C /* libsqlite3.dylib in Frameworks */,
+				03D439E21779129800ED580C /* Security.framework in Frameworks */,
+				03D439E01779128E00ED580C /* CFNetwork.framework in Frameworks */,
+				03D439DE1779128500ED580C /* libicucore.dylib in Frameworks */,
 				03D439A01779124000ED580C /* UIKit.framework in Frameworks */,
 				03D439A21779124000ED580C /* Foundation.framework in Frameworks */,
 				03D439A41779124000ED580C /* CoreGraphics.framework in Frameworks */,
@@ -109,6 +153,10 @@
 		03D4399E1779124000ED580C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03D439E3177912A900ED580C /* libsqlite3.dylib */,
+				03D439E11779129800ED580C /* Security.framework */,
+				03D439DF1779128E00ED580C /* CFNetwork.framework */,
+				03D439DD1779128500ED580C /* libicucore.dylib */,
 				03D4399F1779124000ED580C /* UIKit.framework */,
 				03D439A11779124000ED580C /* Foundation.framework */,
 				03D439A31779124000ED580C /* CoreGraphics.framework */,
@@ -120,6 +168,16 @@
 		03D439A51779124000ED580C /* SimpleChat */ = {
 			isa = PBXGroup;
 			children = (
+				03D439F21779150000ED580C /* SocketRocket */,
+				03D439E61779142F00ED580C /* FMDatabase.h */,
+				03D439E71779142F00ED580C /* FMDatabase.m */,
+				03D439E81779142F00ED580C /* FMDatabaseAdditions.h */,
+				03D439E91779142F00ED580C /* FMDatabaseAdditions.m */,
+				03D439EA1779142F00ED580C /* FMDatabaseQueue.h */,
+				03D439EB1779142F00ED580C /* FMDatabaseQueue.m */,
+				03D439EC1779142F00ED580C /* FMResultSet.h */,
+				03D439ED1779142F00ED580C /* FMResultSet.m */,
+				03D439E51779134900ED580C /* src */,
 				03D439AE1779124000ED580C /* SimpleChatAppDelegate.h */,
 				03D439AF1779124000ED580C /* SimpleChatAppDelegate.m */,
 				03D439B71779124000ED580C /* MainStoryboard.storyboard */,
@@ -135,6 +193,8 @@
 		03D439A61779124000ED580C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03FE2F5C177A6D0C00B6162F /* orange.png */,
+				03FE2F5A177A6CFE00B6162F /* aqua.png */,
 				03D439A71779124000ED580C /* SimpleChat-Info.plist */,
 				03D439A81779124000ED580C /* InfoPlist.strings */,
 				03D439AB1779124000ED580C /* main.m */,
@@ -163,6 +223,33 @@
 				03D439CF1779124000ED580C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03D439E51779134900ED580C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				03FE2F54177A5C0900B6162F /* ChatCell.h */,
+				03FE2F55177A5C0900B6162F /* ChatCell.m */,
+				03FE2F57177A621500B6162F /* ChatMessage.h */,
+				03FE2F58177A621500B6162F /* ChatMessage.m */,
+			);
+			name = src;
+			path = "../../../Downloads/fmdb-master/src";
+			sourceTree = "<group>";
+		};
+		03D439F21779150000ED580C /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				03D439F31779150100ED580C /* base64.c */,
+				03D439F41779150100ED580C /* base64.h */,
+				03D439F51779150100ED580C /* NSData+SRB64Additions.h */,
+				03D439F61779150100ED580C /* NSData+SRB64Additions.m */,
+				03D439F71779150100ED580C /* SocketRocket-Prefix.pch */,
+				03D439F81779150100ED580C /* SRWebSocket.h */,
+				03D439F91779150100ED580C /* SRWebSocket.m */,
+			);
+			name = SocketRocket;
+			path = "../../../Downloads/SocketRocket-master/SocketRocket";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +329,8 @@
 				03D439B41779124000ED580C /* Default@2x.png in Resources */,
 				03D439B61779124000ED580C /* Default-568h@2x.png in Resources */,
 				03D439B91779124000ED580C /* MainStoryboard.storyboard in Resources */,
+				03FE2F5B177A6CFE00B6162F /* aqua.png in Resources */,
+				03FE2F5D177A6D0C00B6162F /* orange.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +369,15 @@
 				03D439B01779124000ED580C /* SimpleChatAppDelegate.m in Sources */,
 				03D439BC1779124000ED580C /* SimpleChatMasterViewController.m in Sources */,
 				03D439BF1779124000ED580C /* SimpleChatDetailViewController.m in Sources */,
+				03D439EE1779142F00ED580C /* FMDatabase.m in Sources */,
+				03D439EF1779142F00ED580C /* FMDatabaseAdditions.m in Sources */,
+				03D439F01779142F00ED580C /* FMDatabaseQueue.m in Sources */,
+				03D439F11779142F00ED580C /* FMResultSet.m in Sources */,
+				03D439FA1779150100ED580C /* base64.c in Sources */,
+				03D439FB1779150100ED580C /* NSData+SRB64Additions.m in Sources */,
+				03D439FC1779150100ED580C /* SRWebSocket.m in Sources */,
+				03FE2F56177A5C0900B6162F /* ChatCell.m in Sources */,
+				03FE2F59177A621500B6162F /* ChatMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +558,7 @@
 				03D439D91779124000ED580C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03D439DA1779124000ED580C /* Build configuration list for PBXNativeTarget "SimpleChatTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +567,7 @@
 				03D439DC1779124000ED580C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
